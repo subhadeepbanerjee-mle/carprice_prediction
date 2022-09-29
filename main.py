@@ -60,8 +60,11 @@ def main():
                   'max_power': [max_power], 'seats': [seats_option]}
     df1 = pd.DataFrame(input_data)
     if st.button("Predict My Car Price"):
-        selling_price = pred(df1)
-        st.success("Your Car Should be Sold at about Rs. {}".format(selling_price))
+        if (avg_cost_price<=0 or mileage<=0 or km_driven <= 0 or max_power <= 0 ):
+            st.error('Cost Price, km driven, Mileage,maximum power should be greater than 0 ', icon="🚨")
+        else:
+            selling_price = pred(df1)
+            st.success("Your Car Should be Sold at about Rs. {}".format(selling_price))
 
 
 if __name__ == '__main__':
