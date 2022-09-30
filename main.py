@@ -36,7 +36,7 @@ def pred(df1):
 def main():
     df = pd.read_csv('cleaned_data.csv')
     brand_list = df['brand'].unique()
-    st.title("PREDICT YOUR CAR PRICE")
+    st.title("PREDICT YOUR OLD CAR PRICE")
     brand_option = st.selectbox('Please select the Brand', brand_list)
     model_list = df[df['brand'] == brand_option]['model'].unique()
     model_option = st.selectbox('Please select the Model', model_list)
